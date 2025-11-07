@@ -4,8 +4,8 @@ import haversine from "haversine-distance"; // npm install haversine-distance
 import jwt from "jsonwebtoken";
 
 export default function rideSocket(io) {
-  io.of("/ride").use( async(socket, next) => {
-  // io.use(async (socket, next) => {
+  // io.of("/ride").use( async(socket, next) => {
+  io.use(async (socket, next) => {
     try {
       // Expect token in handshake headers
       const token = socket.handshake.auth?.token || socket.handshake.headers["authorization"]?.split(" ")[1];

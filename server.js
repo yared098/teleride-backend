@@ -10,7 +10,7 @@ import setupRideSocket from "./sockets/rideSocket.js";
 
 
 dotenv.config();
-connectDB();
+
 
 const app = express();
 app.use(cors());
@@ -25,4 +25,6 @@ const io = new Server(server, { cors: { origin: "*" } });
 setupRideSocket(io);
 
 const PORT = process.env.PORT || 5000;
+
 server.listen(PORT, () => console.log(`🚘 TeleRide running on ${PORT}`));
+connectDB();
