@@ -18,9 +18,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/wallet",walletrout);
-app.use("/health", (req, res) => {
-  return res.status(200).json({ status: "ok", message: "Backend is working!" });
-});
+
 
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
